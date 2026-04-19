@@ -2,48 +2,44 @@ package Project.step.defination;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
- 
-import io.github.bonigarcia.wdm.WebDriverManager;
- 
+import io.cucumber.java.en.*;
+
 public class LoginTest {
-	public WebDriver driver;
-	 public static void main(String[] args) {
-		 // ✅ WebDriverManager setup
-	        WebDriverManager.chromedriver().setup();
- 
-	        // Browser launch
-	        WebDriver driver = new ChromeDriver();
- 
-	        driver.get("https://practicetestautomation.com/practice-test-login/");
-	        driver.manage().window().maximize();
- 
-	        System.out.println(driver.getTitle());
-	        driver.manage().window().maximize();
- 
-	        // Locate elements
-	        WebElement username = driver.findElement(By.id("username"));
-	        WebElement password = driver.findElement(By.id("password"));
-	        WebElement submitBtn = driver.findElement(By.id("submit"));
- 
-	        // Enter credentials
-	        username.sendKeys("student");
-	        password.sendKeys("Password123");
- 
-	        // Click login
-	        submitBtn.click();
- 
-	        // Validation
-	        String currentUrl = driver.getCurrentUrl();
- 
-	        if (currentUrl.contains("logged-in-successfully")) {
-	            System.out.println("Login Successful ✅");
-	        } else {
-	            System.out.println("Login Failed ❌");
-	        }
- 
-	        // Close browser
-	        driver.quit();
-	    }
-	}
+
+    WebDriver driver;
+
+    @Given("user is on login page")
+    public void user_is_on_login_page() {
+        driver = new ChromeDriver();
+        driver.get("https://practicetestautomation.com/practice-test-login/");
+    }
+
+    @When("user enters username {string}")
+    public void user_enters_username(String username) {
+        driver.findElement(By.id("username")).sendKeys(username);
+    }
+
+    @And("user enters password {string}")
+    public void user_enters_password(String password) {
+        driver.findElement(By.id("password")).sendKeys(password);
+    }
+
+    @And("user clicks on login button")
+    public void user_clicks_on_login_button() {
+        driver.findElement(By.id("submit")).click();
+    }
+
+    @Then("user should be logged in successfully")
+    public void user_should_be_logged_in_successfully() {
+        String url = driver.getCurrentUrl();
+
+        if (url.contains("logged-in-successfully")) {
+            System.out.println("Login Successful ✅");
+        } else {
+            System.out.println("Login Failed ❌");
+        }
+
+        driver.quit();
+    }
+}
