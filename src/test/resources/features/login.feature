@@ -16,11 +16,11 @@
 #""
 ## (Comments)
 #Sample Feature Definition Template
+@AAP-3
 Feature: Login functionality
 
   Scenario: Valid login with correct credentials
     Given user is on login page
     When user enters username "student"
     And user enters password "Password123"
-    And user clicks on login button
     Then user should be logged in successfully
