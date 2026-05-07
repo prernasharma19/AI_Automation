@@ -17,6 +17,7 @@
 ## (Comments)
 #Sample Feature Definition Template
 @AAP-3
+
 Feature: Login functionality
 
   Scenario: Valid login with correct credentials
@@ -24,3 +25,4 @@ Feature: Login functionality
     When user enters username "student"
     And user enters password "Password123"
     Then user should be logged in successfully
+    

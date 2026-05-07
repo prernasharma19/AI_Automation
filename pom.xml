@@ -14,7 +14,7 @@
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
-            <version>4.21.0</version>
+            <version>4.34.0</version>
         </dependency>
 
         <!-- Cucumber Java -->
@@ -70,6 +70,62 @@
                     </includes>
                 </configuration>
             </plugin>
+            <plugin>
+    <groupId>net.masterthought</groupId>
+    <artifactId>maven-cucumber-reporting</artifactId>
+    <version>5.8.1</version>
+
+    <executions>
+        <execution>
+            <id>execution</id>
+            <phase>verify</phase>
+            <goals>
+                <goal>generate</goal>
+            </goals>
+
+            <configuration>
+                <projectName>AI Automation</projectName>
+
+                <outputDirectory>
+                    ${project.build.directory}/cucumber-reports
+                </outputDirectory>
+
+                <cucumberOutput>
+                    ${project.build.directory}/cucumber.json
+                </cucumberOutput>
+            </configuration>
+        </execution>
+    </executions>
+</plugin>
+<plugin>
+    <groupId>net.masterthought</groupId>
+    <artifactId>maven-cucumber-reporting</artifactId>
+    <version>5.8.1</version>
+
+    <executions>
+        <execution>
+            <id>execution</id>
+            <phase>verify</phase>
+
+            <goals>
+                <goal>generate</goal>
+            </goals>
+
+            <configuration>
+                <projectName>Automation Framework</projectName>
+
+                <outputDirectory>
+                    ${project.build.directory}/cucumber-reports
+                </outputDirectory>
+
+                <cucumberOutput>
+                    ${project.build.directory}/cucumber.json
+                </cucumberOutput>
+
+            </configuration>
+        </execution>
+    </executions>
+</plugin>
 
         </plugins>
     </build>
