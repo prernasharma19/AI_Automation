@@ -22,7 +22,7 @@ Feature: Login functionality
 
   Scenario: Valid login with correct credentials
     Given user is on login page
-    When user enters username "student"
-    And user enters password "Password123"
+    When user enters username "standard_user"
+    And user enters password "secret_sauce"
     Then user should be logged in successfully
     

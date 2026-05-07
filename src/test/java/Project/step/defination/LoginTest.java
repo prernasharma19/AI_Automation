@@ -13,12 +13,12 @@ public class LoginTest {
     @Given("user is on login page")
     public void user_is_on_login_page() {
         driver = new ChromeDriver();
-        driver.get("https://practicetestautomation.com/practice-test-login/");
+        driver.get("https://www.saucedemo.com/");
     }
 
     @When("user enters username {string}")
     public void user_enters_username(String username) {
-        driver.findElement(By.id("username")).sendKeys(username);
+        driver.findElement(By.id("user-name")).sendKeys(username);
     }
 
     @And("user enters password {string}")
@@ -28,7 +28,7 @@ public class LoginTest {
 
     @And("user clicks on login button")
     public void user_clicks_on_login_button() {
-        driver.findElement(By.id("submit")).click();
+        driver.findElement(By.id("login-button")).click();
     }
 
     @Then("user should be logged in successfully")
