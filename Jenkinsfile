@@ -5,7 +5,7 @@ pipeline {
 
         stage('Checkout') {
             steps {
-                git 'YOUR_GITHUB_REPO_URL'
+                git 'https://github.com/prernasharma19/AI_Automation.git'
             }
         }
 
