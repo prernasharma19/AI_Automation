@@ -3,11 +3,7 @@ pipeline {
 
     stages {
 
-        stage('Checkout') {
-            steps {
-                git 'https://github.com/prernasharma19/AI_Automation.git'
-            }
-        }
+        
 
         stage('Build & Test') {
             steps {
